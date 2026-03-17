@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: sopagent
+    env: node
+    region: oregon
+    plan: free
+    
+    # Build command - builds both frontend and backend
+    buildCommand: bash build.sh
+    
+    # Start command - starts backend server which serves frontend
+    startCommand: cd backend && npm start
+    
+    # Expose port
+    envVars:
+      - key: NODE_ENV
+        value: production
+
